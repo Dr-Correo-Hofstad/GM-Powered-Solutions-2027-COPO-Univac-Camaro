@@ -1,0 +1,33 @@
+====================================================================================
+REVOLUTIONARY TECHNOLOGY COMPANY & UNIVERSITY OF WASHINGTON DEPARTMENT OF PHYSICS
+Subsystem: malibu_cockpit_harness.txt (Post-Body Cockpit 12V Avionics Loom)
+Core Objective: Low-Voltage Pin Landing Grid Matrix for the Direct-Drive 4-Door Malibu
+Compliance: Rule #1 (3oz Copper Rails) & Rule #2 (Bilateral 0.5mm Guard Ground Rings)
+====================================================================================
+
+[TERMINAL J1: PILLARLESS SEDAN REAR DOOR COMBAT DEADBOLT SAFETY LOCK BOX]
+* Pin 1  [12V_AVIONICS_IN]   <--> Supplies raw battery source current to door frames
+* Pin 2  [DEADBOLT_FIRE_L]   <--> Solenoid trigger pulse throwing left-side interlock rod
+* Pin 3  [DEADBOLT_FIRE_R]   <--> Solenoid trigger pulse throwing right-side interlock rod
+* Pin 4  [DOOR_SENSE_CON]    <--> Continuity tracking loop verifying door structural alignment
+* Pin 5  [GND_GUARD_SHIELD]  <--> Rule #2 Ground loop barrier shielding deadbolt logic lines
+
+[TERMINAL J2: DETACHABLE CO-PILOT FAMILY COMMAND TABLET MAGNET DOCK]
+* Pin 1  [5V_ISO_REGULATED]  <--> Constant isolated source to heavy gold-plated pogo pins
+* Pin 2  [TABLET_BUS_TXD]    <--> High-speed serial line transmitting infotainment metrics
+* Pin 3  [TABLET_DOCK_SNS]   <--> Logic checking loop confirming pogo pin matrix continuity
+* Pin 4  [GND_GUARD_SHIELD]  <--> Continuous ground track wrapping communication paths
+
+[TERMINAL J3: MULTI-ZONE PASENGER & TRUNK CARGO LOAD CELL MATRIX]
+* Pin 1  [5V_SENSE_SOURCE]  <--> Regulated voltage feed mapping seat track load weights
+* Pin 2  [CABIN_BALLAST_SIG] <--> 16-state step output reporting passenger weight variance
+* Pin 3  [TRUNK_LUGGAGE_SIG] <--> 16-state step output reporting trunk load pan deflection
+* Pin 4  [GND_GUARD_SHIELD]  <--> Unbroken continuous guard ground wrap preventing EMI hum
+
+[TERMINAL J4: WEATHERPROOF LED MATRIX SWITCHBACK INTERLOCK BACKPLANE]
+* Pin 1  [12V_LIGHT_POWER]   <--> High-current supply path driving dual-color valance flashers
+* Pin 2  [STROBE_PULSE_RED]  <--> Silicon Carbide switch rail driving red pursuit strobe gates
+* Pin 3  [STROBE_PULSE_BLU]  <--> Silicon Carbide switch rail driving blue pursuit strobe gates
+* Pin 4  [GND_GUARD_SHIELD]  <--> Guard ring surrounding emergency flasher trigger paths
+
+====================================================================================
