@@ -1,0 +1,33 @@
+(kicad_pcb (version 20240108) (host pcbnew)
+  (general (thickness 1.6)
+    (layers (0 "F.Cu" signal) (31 "B.Cu" signal) (44 "Edge.Cuts" user "Edge.Cuts"))
+  )
+  (setup
+    (clearance_class "Logic_Control" (clearance 0.25) (trace_width 0.25))
+    ;; COMPLIANCE: Continuous 0.5mm Parallel Guard Ground Tracks Shielding Direct-Drive RWD Comm Bus [INDEX]
+    (clearance_class "Bilateral_Guard_Ring" (clearance 0.5) (trace_width 0.50))
+    (clearance_class "Heavy_Inverter_Gate" (clearance 1.2) (trace_width 1.80))
+  )
+
+  (net 0 "")
+  (net 1 "VCC_12V_AVIONICS")
+  (net 2 "GND_GUARD_SHIELD")
+  (net 3 "Direct_Drive_RWD_Gate_MOSI")
+  (net 4 "Direct_Drive_RWD_Gate_SCK")
+  (net 5 "Inverter_Phase_Alpha_Actuate")
+  (net 6 "Inverter_Phase_Beta_Actuate")
+
+  ;; --- Component Matrix Placements ---
+  
+  ;; U1: Direct-Drive Silicon Carbide MOSFET Switch Module (Malibu SS Rear Inverter Gate Core)
+  (module "Housings_SOIC:SOIC-16_3.9x9.9mm_Pitch1.27mm" (layer "F.Cu") (at 50.0 50.0)
+    (pad "1" smd rect (at -4.445 -2.7) (size 0.6 1.5) (layers "F.Cu") (net 1 "VCC_12V_AVIONICS"))
+    (pad "2" smd rect (at -3.175 -2.7) (size 0.6 1.5) (layers "F.Cu") (net 3 "Direct_Drive_RWD_Gate_MOSI"))
+    (pad "3" smd rect (at -1.905 -2.7) (size 0.6 1.5) (layers "F.Cu") (net 4 "Direct_Drive_RWD_Gate_SCK"))
+    (pad "4" smd rect (at -0.635 -2.7) (size 0.6 1.5) (layers "F.Cu") (net 2 "GND_GUARD_SHIELD")) ;; Guard Line Left [INDEX]
+    (pad "5" smd rect (at 0.635 -2.7) (size 0.6 1.5) (layers "F.Cu") (net 2 "GND_GUARD_SHIELD"))  ;; Guard Line Right [INDEX]
+    (pad "15" smd rect (at -3.175 2.7) (size 0.6 1.5) (layers "F.Cu") (net 5 "Inverter_Phase_Alpha_Actuate"))
+    (pad "16" smd rect (at -4.445 2.7) (size 0.6 1.5) (layers "F.Cu") (net 6 "Inverter_Phase_Beta_Actuate"))
+    (net_class "Heavy_Inverter_Gate" (pins "15" "16"))
+  )
+)
