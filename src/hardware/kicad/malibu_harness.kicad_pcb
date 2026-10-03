@@ -1,0 +1,34 @@
+(kicad_pcb (version 20240108) (host pcbnew)
+  (general (thickness 1.6)
+    (layers (0 "F.Cu" signal) (31 "B.Cu" signal) (44 "Edge.Cuts" user "Edge.Cuts"))
+  )
+  (setup
+    (clearance_class "Logic_Control" (clearance 0.25) (trace_width 0.25))
+    ;; COMPLIANCE: Continuous 0.5mm Parallel Guard Ground Lines Isolating the Malibu 12V Bus
+    (clearance_class "Bilateral_Guard_Ring" (clearance 0.5) (trace_width 0.50))
+    ;; COMPLIANCE: Rule #1 Thick 3oz Copper Trace Width Parameters for High-Draw Solenoid / Light Rails
+    (clearance_class "Heavy_3oz_Avionics_Bus" (clearance 2.0) (trace_width 2.50))
+  )
+
+  (net 0 "")
+  (net 1 "VCC_12V_AVIONICS")
+  (net 2 "GND_GUARD_SHIELD")
+  (net 3 "Muxed_Accessory_Data_Bus")
+  (net 4 "Load_Cell_Telemetry_Sense")
+  (net 5 "Strobe_High_Current_Rail")
+  (net 6 "Deadbolt_Solenoid_Power_Rail")
+
+  ;; --- Component Matrix Placements ---
+  
+  ;; J1_MALIBU: Master 12V Avionics Port Mating the Braided Accessory Harness Trunks
+  (module "Connector_Molex:Molex_Micro-Fit_3.0_2x4_Pitch3.00mm" (layer "F.Cu") (at 50.0 50.0)
+    (pad "1" tht circle (at -4.5 -1.5) (size 1.5 1.5) (drill 1.0) (layers "*.Cu" "*.Mask") (net 1 "VCC_12V_AVIONICS"))
+    (pad "2" tht circle (at -1.5 -1.5) (size 1.5 1.5) (drill 1.0) (layers "*.Cu" "*.Mask") (net 3 "Muxed_Accessory_Data_Bus"))
+    (pad "3" tht circle (at 1.5 -1.5) (size 1.5 1.5) (drill 1.0) (layers "*.Cu" "*.Mask") (net 4 "Load_Cell_Telemetry_Sense"))
+    (pad "4" tht circle (at 4.5 -1.5) (size 1.5 1.5) (drill 1.0) (layers "*.Cu" "*.Mask") (net 2 "GND_GUARD_SHIELD")) ;; Guard Track Left
+    (pad "5" tht circle (at 4.5 1.5) (size 1.5 1.5) (drill 1.0) (layers "*.Cu" "*.Mask") (net 2 "GND_GUARD_SHIELD"))  ;; Guard Track Right
+    (pad "7" tht circle (at -1.5 1.5) (size 2.5 2.5) (drill 1.6) (layers "*.Cu" "*.Mask") (net 5 "Strobe_High_Current_Rail"))
+    (pad "8" tht circle (at -4.5 1.5) (size 2.5 2.5) (drill 1.6) (layers "*.Cu" "*.Mask") (net 6 "Deadbolt_Solenoid_Power_Rail"))
+    (net_class "Heavy_3oz_Avionics_Bus" (pins "7" "8"))
+  )
+)
